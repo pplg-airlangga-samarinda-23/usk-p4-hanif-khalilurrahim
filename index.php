@@ -64,7 +64,7 @@
 
     <nav>
         <ul>
-            <li><a href="navbar1/index.php">Katalog Buku</a></li>
+            <li><a href="katalog.php">Katalog Buku</a></li>
             <li><a href="">Tentang</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>

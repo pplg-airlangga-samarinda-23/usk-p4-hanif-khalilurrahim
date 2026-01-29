@@ -6,20 +6,18 @@
     <title>Login</title>
 </head>
 <body>
-    
-    <h1>Login system Perpustakaan</h1>
 
-    <form action="dashboard.php" method="POST">
-        <div class="form-item">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-        </div>
-        <div class="form-item">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <button type="submit">Login</button>
-    </form>
+<h2>Login</h2>
 
+<form action="proses-login.php" method="POST">
+    Username:<br>
+    <input type="text" name="username" required><br><br>
+
+    Password:<br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit" name="login">Login</button>
+</form>
+<a href="register.php">tidak punya akun ?</a>
 </body>
 </html>

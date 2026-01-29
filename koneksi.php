@@ -1,8 +1,7 @@
 <?php
+$koneksi = mysqli_connect("localhost", "root", "", "perpus_c3");
 
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'perpus_c3';
-
-$koneksi = new mysqli ($hostname, $username,$password,$database);
+if (!$koneksi) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+?>

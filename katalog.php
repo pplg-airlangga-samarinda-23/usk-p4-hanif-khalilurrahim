@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../koneksi.php';
+include __DIR__ . '/koneksi.php';
 
 $sql = "SELECT * FROM buku";
 $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
@@ -12,11 +12,12 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Buku</title>
+    <title>Katalog Buku</title>
 </head>
 <body>
     
-    <h1>Data Buku</h1>
+    <h1>Katalog Buku</h1>
+    <h2><a href="/usk-p4-HANIF-KHALILURRAHIM/index.php">Back</a></h2>
 
     <table>
         <thead>
@@ -24,7 +25,6 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
             <th>Judul</th>
             <th>Pengarang</th>
             <th>Stok</th>
-            <th>Aksi</th>
         </thead>
         <tbody>
             <?php $no=0; foreach ($books as $book) : ?>
@@ -33,11 +33,6 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
                 <td><?= $book['judul'] ?></td>
                 <td><?= $book['pengarang'] ?></td>
                 <td><?= $book['stok'] ?></td>
-                <td>
-                    <a href="edit.php?id=<?= $book['id'] ?>">Edit</a>
-                    <a href="delete.php?id=<?= $book['id'] ?>">Hapus</a>
-                    <a href="create.php">Add</a>
-                </td>
             </tr>
             <?php endforeach ?>
         </tbody>
