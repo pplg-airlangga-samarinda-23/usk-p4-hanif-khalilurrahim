@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../koneksi.php';
+include __DIR__ . '/../../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $judul = $_POST['judul'];

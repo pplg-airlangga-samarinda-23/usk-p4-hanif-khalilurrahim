@@ -18,6 +18,8 @@
 
     <button type="submit" name="login">Login</button>
 </form>
-<a href="register.php">tidak punya akun ?</a>
+<a href="register.php">tidak punya akun ?</a><br>
+<a>name: admin, pass: admin123</a><br>
+<a>name: masdim, pass: 123</a>
 </body>
 </html>

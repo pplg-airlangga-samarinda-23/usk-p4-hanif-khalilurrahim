@@ -18,8 +18,8 @@ if ($_SESSION['role'] != 'user') {
 
     <nav>
         <ul>
-            <li><a href="">Peminjaman</a></li>
-            <li><a href="">Pengembalian</a></li>
+            <li><a href="peminjaman.php">Peminjaman</a></li>
+            <li><a href="histori-pinjam.php">histori</a></li>
             <li><a href="/usk-p4-HANIF-KHALILURRAHIM/login.php">LogOut</a></li>
         </ul>
     </nav>

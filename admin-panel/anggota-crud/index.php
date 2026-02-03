@@ -2,8 +2,8 @@
 
 include __DIR__ . '/../../koneksi.php';
 
-$sql = "SELECT * FROM buku";
-$books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+$sql = "SELECT * FROM pengguna";
+$users = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
@@ -12,7 +12,7 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Buku</title>
+    <title>anggota CRUD</title>
     <style>
         th, td {
             border: 1px solid black;
@@ -25,24 +25,24 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
     
-    <h1>Data Buku</h1>
-
+    <h1>pengembalian</h1>
     <table>
         <thead>
-            <a href="create.php">Add</a>
-            <th>No</th>
-            <th>Judul</th>
-            <th>Pengarang</th>
-            <th>Stok</th>
-            <th>Aksi</th>
+            <tr>
+                <th>No</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Aksi</th>
+            </tr>
         </thead>
         <tbody>
-            <?php $no=0; foreach ($books as $book) : ?>
+            <?php $no=0; foreach ($users as $user) : ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <td><?= $book['judul'] ?></td>
-                <td><?= $book['pengarang'] ?></td>
-                <td><?= $book['stok'] ?></td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['password'] ?></td>
+                <td><?= $user['role'] ?></td>
                 <td>
                     <a href="edit.php?id=<?= $book['id'] ?>">Edit</a>
                     <a href="delete.php?id=<?= $book['id'] ?>">Hapus</a>
@@ -51,5 +51,6 @@ $books = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
             <?php endforeach ?>
         </tbody>
     </table>
+
 </body>
 </html>
