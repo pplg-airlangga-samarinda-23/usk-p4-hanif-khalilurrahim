@@ -3,7 +3,15 @@
 include __DIR__ . '/../koneksi.php';
 
 $sql = "SELECT * FROM peminjaman";
-$historis = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+$where = "";
+
+if (isset($_GET['cari']) && $_GET['cari'] != '') {
+    $cari = $_GET['cari'];
+    $where = "WHERE nama LIKE '%$cari%' OR nama LIKE '%$cari%'";
+}
+
+$query = "SELECT * FROM peminjaman $where ORDER BY id DESC";
+$historis = mysqli_query($koneksi, $query);
 
 ?>
 
@@ -21,6 +29,11 @@ $historis = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
     <h1>Histori</h1>
+    <form method="GET">
+        <input type="text" name="cari" placeholder="Cari nama / buku..."
+            value="<?= isset($_GET['cari']) ? $_GET['cari'] : '' ?>">
+        <button type="submit">Search</button>
+    </form>
     <table>
         <thead>
             <tr>

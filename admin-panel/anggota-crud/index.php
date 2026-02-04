@@ -3,7 +3,15 @@
 include __DIR__ . '/../../koneksi.php';
 
 $sql = "SELECT * FROM pengguna";
-$users = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+$where = "";
+
+if (isset($_GET['cari']) && $_GET['cari'] != '') {
+    $cari = $_GET['cari'];
+    $where = "WHERE username LIKE '%$cari%' OR username LIKE '%$cari%'";
+}
+
+$query = "SELECT * FROM pengguna $where ORDER BY id DESC";
+$users = mysqli_query($koneksi, $query);
 
 ?>
 
@@ -26,8 +34,16 @@ $users = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 <body>
     
     <h1>pengembalian</h1>
+
+    <form method="GET">
+        <input type="text" name="cari" placeholder="Cari nama / buku..."
+            value="<?= isset($_GET['cari']) ? $_GET['cari'] : '' ?>">
+        <button type="submit">Search</button>
+    </form>
+
     <table>
         <thead>
+            <a href="create.php ">Add</a>
             <tr>
                 <th>No</th>
                 <th>Username</th>
@@ -44,8 +60,8 @@ $users = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
                 <td><?= $user['password'] ?></td>
                 <td><?= $user['role'] ?></td>
                 <td>
-                    <a href="edit.php?id=<?= $book['id'] ?>">Edit</a>
-                    <a href="delete.php?id=<?= $book['id'] ?>">Hapus</a>
+                    <a href="edit.php?id=<?= $user['id'] ?>">Edit</a>
+                    <a href="delete.php?id=<?= $user['id'] ?>">Hapus</a>
                 </td>
             </tr>
             <?php endforeach ?>
