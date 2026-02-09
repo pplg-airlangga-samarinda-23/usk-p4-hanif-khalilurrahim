@@ -1,15 +1,6 @@
 <?php include __DIR__ . '/../koneksi.php'; 
-
+session_start();
 $sql = "SELECT * FROM buku";
-// $where = "";
-
-// if (isset($_GET['cari']) && $_GET['cari'] != '') {
-//     $cari = $_GET['cari'];
-//     $where = "WHERE judul LIKE '%$cari%' OR judul LIKE '%$cari%'";
-// }
-
-// $query = "SELECT * FROM buku $where ORDER BY id DESC";
-// $b = mysqli_query($koneksi, $query);
 
 ?>
 
@@ -29,12 +20,6 @@ $sql = "SELECT * FROM buku";
 
 <h2>Daftar Buku</h2>
 <a href="dashboard.php">Back</a>
-
-<!-- <form method="GET">
-    <input type="text" name="cari" placeholder="Cari nama / buku..."
-        value="<?= isset($_GET['cari']) ? $_GET['cari'] : '' ?>">
-    <button type="submit">Search</button>
-</form> -->
 
 <table border="1" cellpadding="10">
     <tr>
@@ -59,8 +44,8 @@ $sql = "SELECT * FROM buku";
             <?php if($b['stok'] > 0){ ?>
             <form action="proses-pinjam.php" method="POST">
                 <input type="hidden" name="id_buku" value="<?= $b['id'] ?>">
-                Nama: <input type="text" name="nama" required>
-                <button type="submit" name="pinjam">Pinjam</button>
+                    Nama: <input type="text" name="nama" value="<?php echo $_SESSION['username']; ?>" readonly>
+                    <button type="submit" name="pinjam">Pinjam</button>
             </form>
             <?php } else { ?>
                 <b>Stok Habis</b>

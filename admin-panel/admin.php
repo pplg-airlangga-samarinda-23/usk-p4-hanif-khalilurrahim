@@ -21,7 +21,7 @@ if ($_SESSION['role'] != 'admin') {
             <li><a href="buku-crud/index.php">CRUD buku</a></li>
             <li><a href="anggota-crud/index.php">CRUD anggota admin</a></li>
             <li><a href="tx-crud/index.php">CRUD transaksi</a></li>
-            <li><a href="/usk-p4-HANIF-KHALILURRAHIM/index.php">Back</a></li>
+            <li><a href="/../index.php">Back</a></li>
         </ul>
     </nav>
 

@@ -2,7 +2,6 @@
 session_start();
 include 'koneksi.php';
 
-// Cegah error jika file dibuka langsung
 if (!isset($_POST['login'])) {
     header("Location: login.php");
     exit;
@@ -17,6 +16,8 @@ $data  = mysqli_fetch_assoc($query);
 if ($data && password_verify($password, $data['password'])) {
 
     $_SESSION['username'] = $data['username'];
+    $_SESSION['nama']     = $data['nama'];   // 🔥 TAMBAHAN PENTING
+    $_SESSION['id_user']  = $data['id'];     // opsional tapi bagus
     $_SESSION['role']     = $data['role'];
 
     if ($data['role'] == 'admin') {

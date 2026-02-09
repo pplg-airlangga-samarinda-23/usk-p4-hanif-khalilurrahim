@@ -20,7 +20,7 @@ if ($_SESSION['role'] != 'user') {
         <ul>
             <li><a href="peminjaman.php">Peminjaman</a></li>
             <li><a href="histori-pinjam.php">histori</a></li>
-            <li><a href="/usk-p4-HANIF-KHALILURRAHIM/login.php">LogOut</a></li>
+            <li><a href="/../login.php">LogOut</a></li>
         </ul>
     </nav>
     

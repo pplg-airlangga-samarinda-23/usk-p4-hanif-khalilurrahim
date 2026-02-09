@@ -19,7 +19,10 @@
     <button type="submit" name="login">Login</button>
 </form>
 <a href="register.php">tidak punya akun ?</a><br>
+<a>admin acc</a><br>
 <a>name: admin, pass: admin123</a><br>
+<a>user acc</a><br>
 <a>name: masdim, pass: 123</a>
+<a>name: masdim2, pass: 123123</a>
 </body>
 </html>
